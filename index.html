@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Particles Sandbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <aside class="panel" id="controls" role="region" aria-label="Controls">
+      <h1>Particles Sandbox</h1>
+      <p class="desc">Draw with touch or mouse. Single-finger draw, two-finger erase, pinch to change size. Works on desktop & mobile.</p>
+
+      <label for="type">Particle</label>
+      <select id="type" aria-label="Particle type"></select>
+
+      <div class="control-row">
+        <label for="size">Brush size: <span id="sizeLabel">8</span></label>
+        <input id="size" type="range" min="1" max="64" value="8">
+      </div>
+
+      <div class="control-row">
+        <label for="shape">Brush shape</label>
+        <select id="shape">
+          <option value="circle">Circle</option>
+          <option value="square">Square</option>
+        </select>
+      </div>
+
+      <div class="control-row">
+        <label for="speed">Sim speed</label>
+        <input id="speed" type="range" min="1" max="8" value="1">
+        <button id="ff" class="btn">×2</button>
+      </div>
+
+      <div class="control-row">
+        <label for="gravity">Gravity</label>
+        <input id="gravity" type="range" min="0" max="2" step="0.1" value="1">
+      </div>
+
+      <div class="row-buttons">
+        <button id="drawToggle" class="btn primary" data-erase="0">Erase: Off</button>
+        <button id="pause" class="btn">Pause</button>
+        <button id="step" class="btn">Step</button>
+      </div>
+
+      <div class="row-buttons">
+        <button id="clear" class="btn">Clear</button>
+        <button id="random" class="btn">Random</button>
+        <button id="presetBtn" class="btn">Apply Preset</button>
+      </div>
+
+      <div class="row-buttons">
+        <button id="savePNG" class="btn">Export PNG</button>
+        <button id="saveJSON" class="btn">Save JSON</button>
+        <input id="loadFile" type="file" accept="application/json" style="display:none">
+        <button id="loadJSON" class="btn">Load JSON</button>
+      </div>
+
+      <label for="preset">Presets</label>
+      <select id="preset">
+        <option value="">— pick a preset —</option>
+      </select>
+
+      <details class="info">
+        <summary>Advanced</summary>
+        <label><input id="mobileCap" type="checkbox" checked> Cap mobile resolution</label>
+        <label><input id="gridOverlay" type="checkbox"> Show grid</label>
+        <label><input id="undoEnable" type="checkbox" checked> Enable small undo</label>
+      </details>
+
+      <footer>
+        <small>Keyboard: P pause/resume, C clear, E toggle erase. On phones: use two-finger erase or Erase toggle.</small>
+      </footer>
+    </aside>
+
+    <section class="canvas-wrap">
+      <canvas id="c"></canvas>
+      <div id="mobileQuick" class="mobile-toolbar" aria-hidden="true">
+        <button id="undo" class="btn">Undo</button>
+        <button id="redo" class="btn">Redo</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
